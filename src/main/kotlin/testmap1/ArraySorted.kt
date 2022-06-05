@@ -13,70 +13,44 @@ fun main() {
     arraySorted.forEach {
         println(it.toString())
     }
-
-
-
-
 }
-
 class ArrayOrdenado {
-
     fun setArraySorted(metAgregarArray: List<TablaCongresoVentas>): ArrayList<TablaCongresoVentas> {
         val mapValues = metAgregarArray!!.groupBy {
             it?.idCodigoDeBarra
         }
-
             .mapValues { entry ->
                 entry.value.sumByDouble {
                     it.remarcacionResultadoFinal!!.toDouble()
                 }
             }
-
-
         for (numx in mapValues) {
-            //  mapValues.size
-            println(mapValues.size)
             for (i in itemsListVentasNew!!.indices) {
-
                 if (itemsListVentasNew!![i].idCodigoDeBarra?.contains(numx.key.toString())!!) {
-
                     val division = numx.value / itemsListVentasNew!![i].remarcacionResultadoFinal!!.toDouble()
                     println("division es " + division.toInt() + " y el ide es " + numx.key)
                     itemsListVentasNew!![i].remarcacionResultadoFinal = numx.value.toString()
                     itemsListVentasNew!![i].cantidadDeProductos = division.toInt().toString()
                     itemsListVentasNuevo?.add(
-
                         TablaCongresoVentas(
                             itemsListVentasNew!![i].cantidadDeProductos,
                             itemsListVentasNew!![i].fechadeventas,
                             itemsListVentasNew!![i].idCodigoDeBarra,
                             itemsListVentasNew!![i].nombreDelProducto,
-                            itemsListVentasNew!![i].remarcacionResultadoFinal
-                            ,
+                            itemsListVentasNew!![i].remarcacionResultadoFinal,
                             itemsListVentasNew!![i].usuario,
                             itemsListVentasNew!![i].mail
-
-
                         )
                     )
-
-
-
-
                     break
-
                 }
-
             }
-
-
         }
         return itemsListVentasNuevo!!
     }
 }
 
 class ArraySorted {
-
     fun metAgregarArray(): List<TablaCongresoVentas> {
         var xd = TablaCongresoVentas(
             "1",
@@ -153,14 +127,6 @@ class ArraySorted {
         itemsListVentasNew?.add(4, wx)
         itemsListVentasNew?.add(4, wx1)
         itemsListVentasNew?.add(4, yy)
-
-
-
-
-
         return itemsListVentasNew!!
-
     }
-
-
 }
